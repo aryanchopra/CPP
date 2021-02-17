@@ -2,6 +2,10 @@
     "files.associations": {
         "iostream": "cpp",
         "unordered_set": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "vector": "cpp",
+        "stack": "cpp",
+        "utility": "cpp",
+        "algorithm": "cpp"
     }
 }
