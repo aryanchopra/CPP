@@ -1,21 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool subsetsum(int sum, int val[], int n){
-    bool t[n+1][sum+1];
+int countsubsetsum(int sum, int val[], int n){
+    int t[n+1][sum+1];
 
     for(int i=0;i<n+1;i++){
-        t[i][0]=true;
+        t[i][0]=1;
     }
 
     for(int w=1;w<sum+1;w++){
-        t[0][w]=false;
+        t[0][w]=0;
     }    
 
     for(int i=1;i<n+1;i++){
         for(int w=1;w<sum+1;w++){
             if(val[i-1]<=w){
-                t[i][w]=t[i-1][w-val[i-1]]||t[i-1][w];
+                t[i][w]=t[i-1][w-val[i-1]]+t[i-1][w];
             }
             else{
                 t[i][w]=t[i-1][w];
@@ -37,11 +37,6 @@ int main(){
         cin>>val[i];
     }
     
-    if(subsetsum(sum,val,n)){
-        cout<<"Truee";
-    }
-    else{
-        cout<<"Not true";
-    }
+    cout<<countsubsetsum(sum,val,n);
 
 }
